@@ -22,7 +22,7 @@ class DeleteUserDTO extends DTOFormRequest
     public function rules(): array
     {
         return [
-            'phone' => $this->phone,
+            'phone' => 'required',
         ];
     }
 }

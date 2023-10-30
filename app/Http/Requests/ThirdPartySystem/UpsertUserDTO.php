@@ -3,6 +3,7 @@
 namespace App\Http\Requests\ThirdPartySystem;
 
 use App\Contracts\DTOMappingContract;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Collection;
 
@@ -19,7 +20,7 @@ class UpsertUserDTO extends DTOFormRequest implements DTOMappingContract
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -30,6 +31,12 @@ class UpsertUserDTO extends DTOFormRequest implements DTOMappingContract
         ];
     }
 
+    /**
+     * example : full_name : 'Alireza Salehi' ==> first_name : 'Alireza , last_name : 'Salehi'
+     * example : mobile_number : '09134809830' ==> phone : '9134809830'
+     *
+     * @return Collection|array
+     */
     public function mapInto(): Collection|array
     {
         [$firstName, $lastName] = explode(" ", $this->full_name);
