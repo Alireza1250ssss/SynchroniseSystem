@@ -38,7 +38,7 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware(['api','web-service-access'])
                 ->prefix('webhook')
-                ->group(base_path('routes/third-party-system.php'));
+                ->group(base_path('routes/third-party-hooks.php'));
         });
     }
 }
