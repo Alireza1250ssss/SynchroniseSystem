@@ -12,4 +12,14 @@ interface DTOMappingContract
      * @return Collection|array
      */
     public function mapInto() : Collection|array;
+
+    /**
+     * return mapped data in form of assoc array
+     * 
+     * @return Collection|array
+     */
+    public function transformedData(): array|Collection;
+
+    
+    //TODO implement ArrayAccess for DTOs
 }
