@@ -18,7 +18,7 @@ class SendingUserCreateDTO implements DTOMappingContract
 
     public function mapInto() : Collection|array
     {
-        $fullName = $this->user->getFullName();
+        $fullName = $this->user->full_name; //accessor defined
         $phone = "0" . $this->user->phone;
         return [
             'full_name' => $fullName,
